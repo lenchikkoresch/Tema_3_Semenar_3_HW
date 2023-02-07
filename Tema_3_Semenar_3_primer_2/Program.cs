@@ -17,39 +17,41 @@ A (7,-5); B (1,-1) -> 7,21
 2 -> 1,4
 */
 
-int GetNumber (string message)
+int GetQuarterFromUser(string message)
 {
-int resultNumber=0;
-while(true)
-{
-    Console.WriteLine(message);
-    if(int.TryParse(Console.ReadLine(), out resultNumber) && resultNumber!=0)
+    int result = 0;
+    while (true)
     {
-        break;
-    }
-    else
-    {
-        Console.WriteLine("Ввели не число или некорректное число.Повторите ввод!\n");
+        Console.WriteLine(message);
+        if (int.TryParse(Console.ReadLine(), out result) && result > 0 && result < 5)
+        {
+            break;
         }
-}
-return resultNumber;
+        else
+        {
+            Console.WriteLine("Ввели неккоректный номер четверти");
+        }
+    }
+    return result;
 }
 
-int GetQuarter (int x, int y)
+
+int quarter = GetQuarterFromUser("Enter quarter number");
+
+
+if (quarter == 1)
 {
-    if (x>0 && y>0)
-    return 1;
-    else if (x<0 && y>0)
-    return 2;
-    else if (x<0 && y<0)
-    return 3;
-    else 
-    return 4;
+    Console.WriteLine($"x in {quarter} lies between 0 and infinity, y in {quarter} lies between 0 and infinity");
 }
- 
- int x = GetNumber ("Введите координату Х. которая не равна 0:");
- int y = GetNumber ("Введите координату Y. которая не равна 0:");
- int quarter = GetQuarter(x,y);
-  
-  Console.WriteLine($"Точка с координатами ({x},{y})лежит {quarter} в четверти");
-
+else if (quarter == 2)
+{
+    Console.WriteLine($"x in {quarter} lies between 0 and - infinity, y in {quarter} lies between 0 and infinity");
+}
+else if (quarter == 3)
+{
+    Console.WriteLine($"x in {quarter} lies between -infiniti and 0, y in {quarter} leis between -infiniti and 0");
+}
+else if (quarter == 4)
+{
+    Console.WriteLine($"x in {quarter} lies between -infiniti and 0, y in {quarter} leis between 0 and infiniti");
+}
