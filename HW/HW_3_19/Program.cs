@@ -13,7 +13,7 @@ int GetNumber(string message)
     while (true)
     {
         Console.WriteLine(message);
-        if (int.TryParse(Console.ReadLine(), out result) && 9999 < result && result < 100000)
+        if (int.TryParse(Console.ReadLine(), out result) )
         {
             break;
         }
@@ -30,19 +30,28 @@ string IsPolindrome(string numbered)
     string number1 = numbered.ToString();
     int caunt = number1.Length;
     int a;
+    int b=0;
     int i = 0;
     a = (caunt / 2);
     for (i = 0; i < a; i++)
     {
         if (number1[i] == number1[caunt - 1 - i])
         {
-            Console.WriteLine($"{number1} - Палиндром");
+            b=b+1;
         }
         else
         {
-            Console.WriteLine($"{number1} - НЕ палиндром");
+            b=b;
         }
     }
+if (b == a)
+{
+    Console.WriteLine($"{number1} - Палиндром");
+}
+else
+{
+    Console.WriteLine($"{number1} - НЕ палиндром");
+}
     return number1;
 }
 
@@ -50,3 +59,4 @@ string IsPolindrome(string numbered)
 int result = GetNumber("Введите пятизначное положительное число");
 string numbered = result.ToString();
 string result1 = IsPolindrome(numbered);
+
