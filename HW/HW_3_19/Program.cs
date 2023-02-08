@@ -13,7 +13,7 @@ int GetNumber(string message)
     while (true)
     {
         Console.WriteLine(message);
-        if (int.TryParse(Console.ReadLine(), out result) )
+        if (int.TryParse(Console.ReadLine(), out result) && 9999 < result && result < 100000)
         {
             break;
         }
